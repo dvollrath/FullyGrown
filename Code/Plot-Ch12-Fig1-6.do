@@ -38,26 +38,29 @@ label variable Destabs_check "Net entry"
 line estabs_entry_rate year, ///
 	|| line estabs_exit_rate year, ///
 	ytitle("Entry/exit as % of existing establishments") xtitle("Year") ///
-	ylabel(,format(%9.1f)) xlabel(1975(5)2015)
-graph export "./Drafts/chi-vollrath-fig12001.png", replace as(png) width(1500)
+	ylabel(,format(%9.1f)) xlabel(1975(5)2015) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig12001.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig12001.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig12001) title("12.1 Establishment entry and exit rates over time")
 
 // Produce entry/exit growth figure
-twoway (bar estabs_entry year, ///
+twoway (bar estabs_entry year, color(gs4) scheme(vollrath) ///
 	ytitle("Change in number of establishments (thousands)") xtitle("Year") ///
 	ylabel(,format(%9.1f)) xlabel(1975(5)2015) ) ///
-	(bar estabs_exit year) ///
-	(bar Destabs_check year)
-graph export "./Drafts/chi-vollrath-fig12002.png", replace as(png) width(1500)
+	(bar estabs_exit year, color(gs12) ) ///
+	(bar Destabs_check year, color(gs8) ) 
+graph export "./Drafts/chi-vollrath-fig12002.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig12002.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig12002) title("12.2 Growth in entry, exit, and net entry")
 
 // Produce level of establishments figure
 line estabs year, ///
 	ytitle("Number of establishments (millions)") xtitle("Year") ///
-	ylabel(,format(%9.1f)) xlabel(1975(5)2015)
-graph export "./Drafts/chi-vollrath-fig12003.png", replace as(png) width(1500)
+	ylabel(,format(%9.1f)) xlabel(1975(5)2015) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig12003.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig12003.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig12003) title("12.3 Number of establishments and firms")
 
@@ -86,25 +89,28 @@ label variable job_destruction_rate "Job destruction rate"
 line job_creation_rate year, ///
 	|| line job_destruction_rate year, ///
 	ytitle("Creation/destruction as % of existing jobs") xtitle("Year") ///
-	ylabel(,format(%9.1f)) xlabel(1975(5)2015)
-graph export "./Drafts/chi-vollrath-fig12004.png", replace as(png) width(1500)
+	ylabel(,format(%9.1f)) xlabel(1975(5)2015) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig12004.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig12004.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig12004) title("12.4 Job creation and destruction rates")
 
 // Produce growth in jobs figure
-twoway (bar job_creation year, ///
+twoway (bar job_creation year, color(gs4) scheme(vollrath) ///
 	ytitle("Change in number of jobs (millions)") xtitle("Year") ///
 	ylabel(,format(%9.1f)) xlabel(1975(5)2015) ) ///
-	(bar job_destruction year) ///
-	(bar net_job_creation year)
-graph export "./Drafts/chi-vollrath-fig12005.png", replace as(png) width(1500)
+	(bar job_destruction year, color(gs12) ) ///
+	(bar net_job_creation year, color(gs8) )
+graph export "./Drafts/chi-vollrath-fig12005.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig12005.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig12005) title("12.5 Growth in jobs created and destroyed over time")
 
 // Produce level of jobs figure
 line emp year, ///
 	ytitle("Number of jobs (millions)") xtitle("Year") ///
-	ylabel(60(10)120, format(%9.1f)) xlabel(1975(5)2015)
-graph export "./Drafts/chi-vollrath-fig12006.png", replace as(png) width(1500)
+	ylabel(60(10)120, format(%9.1f)) xlabel(1975(5)2015) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig12006.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig12006.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig12006) title("12.6 Total number of jobs over time")

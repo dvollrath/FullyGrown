@@ -35,24 +35,27 @@ gen Glforce = 100*(lforce2015/lforce2001 - 1) // growth of labor force
 // City size and GDP per worker
 scatter gdppw2015 pop2015, xscale(log extend) yscale(log) mlabel(label) mlabposition(12) ///
 	xtitle("City population (millions)") ytitle("Metro GDP per capita (relative to min.) in 2015") ///
-	ylabel(1 2(2)6) xlabel(.1 .5 1 2 3 4 5 10 15 20)
-graph export "./Drafts/chi-vollrath-fig13003.png", replace as(png) width(1500)
+	ylabel(1 2(2)6) xlabel(.1 .5 1 2 3 4 5 10 15 20) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig13003.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig13003.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig13003) title("13.3 Relative GDP per worker across MSAs versus their size, 2015")
 
 // GDP per worker and growth
 scatter Glforce gdppw2001 if gdppw2001<5, xscale(log extend) ///
 	xtitle("Metro GDP per capita (relative to min.) in 2001") ytitle("Percentage growth in labor force, 2001-2015") ///
-	xlabel(1 2 4)
-graph export "./Drafts/chi-vollrath-fig13004.png", replace as(png) width(1500)
+	xlabel(1 2 4) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig13004.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig13004.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig13004) title("13.4 Growth in MSA labor force versus relative GDP per worker, 2001-2015")
 
-scatter Glforce temp_avg_jan if flaz==1, msymbol(o) ///
+scatter Glforce temp_avg_jan if flaz==1, msymbol(O) ///
 	|| scatter Glforce temp_avg_jan if flaz==0, ///
 	xlabel(10 20 30 40 50 60 70 80) /// 
-	xtitle("Mean January temperature (F)") ytitle("Percentage growth in size, 2001-2015") ///
-	legend(label(1 "Florida and Arizona") label(2 "All other states"))
-graph export "./Drafts/chi-vollrath-fig13005.png", replace as(png) width(1500)
+	xtitle("Mean January temperature (F)") ytitle("Percentage growth in labor force, 2001-2015") ///
+	legend(label(1 "Florida and Arizona") label(2 "All other states")) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig13005.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig13005.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig13005) title("13.5 Growth in MSA labor force versus mean January temperature")

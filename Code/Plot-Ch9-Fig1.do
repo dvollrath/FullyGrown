@@ -40,7 +40,8 @@ keep if year>=1947 & year<=2016
 line profit_share year ///
 	|| line k_share year ///
 	, xtitle("Year") ytitle("Share of corp. business gross value added") ///
-	xlabel(1950(10)2010 2016) ylabel(0(0.05)0.4,format(%4.2f))
-graph export "./Drafts/chi-vollrath-fig09001.png", replace as(png) width(1500)
+	xlabel(1950(10)2010 2016) ylabel(0(0.05)0.4,format(%4.2f)) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig09001.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig09001.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig09001) title("9.1 The share of capital payments and economic profits in GDP over time")

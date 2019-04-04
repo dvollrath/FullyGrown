@@ -24,8 +24,9 @@ keep if measure=="Employment"
 ////////////////////////////////////////////////////////
 // Produce figure on employment by firm size
 ////////////////////////////////////////////////////////
-scatter perc500 year, connect(direct) ///
-	|| scatter percLT500 year, connect(direct) clpattern(dash) ///
-	ylabel(,format(%9.2f)) ytitle("Share of all employment") xtitle("Year")
-graph export "./Drafts/chi-vollrath-fig10003.png", replace as(png) width(1500)
+scatter perc500 year, connect(direct) lwidth(thick) ///
+	|| scatter percLT500 year, connect(direct) clpattern(dash) lwidth(thick) ///
+	ylabel(,format(%9.2f)) ytitle("Share of all employment") xtitle("Year") scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig10003.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig10003.png", replace as(png) width($width)
 

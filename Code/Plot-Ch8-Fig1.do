@@ -51,7 +51,8 @@ line price101 year ///
 	|| line price8 year, ///
 	ylabel(100(100)1200) xlabel(1980(5)2015) ///
 	ytitle("Price index (1980=100)") xtitle("Year") ///
-	legend(cols(1) colfirst textfirst)
-graph export "./Drafts/chi-vollrath-fig08001.png", replace as(png) width(1500)
+	legend(cols(1) colfirst textfirst) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig08001.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig08001.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig08001) title("8.1 Price indices by type of product")

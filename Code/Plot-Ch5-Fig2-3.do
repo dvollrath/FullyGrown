@@ -15,7 +15,8 @@ line value time if age=="D1TTR5Y2" ///
 	xtitle("Year") xlabel(1950(10)2030) ///
 	ytitle("Percentage of working age population (20-64)") ///
 	legend(label(1 "Youth dependency (0-20)") label(2 "Old age dependency (65+)"))
-graph export "./Drafts/chi-vollrath-fig05003.png", replace as(png) width(1500)
+graph export "./Drafts/chi-vollrath-fig05003.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig05003.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig05003) title("5.3 Dependency ratios over time")
 
@@ -36,12 +37,13 @@ replace value = value/1000 // put population count in millions
 ////////////////////////////////////////////////////////
 // Produce figure of age distribution by year
 ////////////////////////////////////////////////////////
-scatter value str_age if time==1960, connect(line) ///
-	|| scatter value str_age if time==1990, connect(line) lpattern(dash) ///
-	|| scatter value str_age if time==2020, connect(line) ///
+scatter value str_age if time==1960, connect(line) lwidth(medthick) ///
+	|| scatter value str_age if time==1990, connect(line) lpattern(dash)  lwidth(medthick)  ///
+	|| scatter value str_age if time==2020, connect(line)  lwidth(medthick) ///
 	xtitle("Minimum age in bin") ytitle("Millions of people") ///
 	xlabel(0(5)85) ///
-	legend(label(1 "1960") label(2 "1990") label(3 "2020"))
-graph export "./Drafts/chi-vollrath-fig05002.png", replace as(png) width(1500)
+	legend(label(1 "1960") label(2 "1990") label(3 "2020")) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig05002.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig05002.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig05002) title("5.2 Age structure over time")

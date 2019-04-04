@@ -27,7 +27,8 @@ forvalues i = 2001(1)2016 { // produce GDP per worker and per capital
 ////////////////////////////////////////////////////////
 scatter wrluri gdppw2016 if wrluri<2 & gdppw2016<6, ///  eliminate outliers
 	mlabel(label) mlabposition(12) ///
-	xtitle("GDP per capita, 2016 (relative to min.)") ytitle("Real estate regulation index")
-graph export "./Drafts/chi-vollrath-fig14003.png", replace as(png) width(1500)
+	xtitle("GDP per capita, 2016 (relative to min.)") ytitle("Real estate regulation index") scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig14003.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig14003.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig14003) title("14.3 Real Estate Regulation and GDP per worker, 2016, by metro area")	

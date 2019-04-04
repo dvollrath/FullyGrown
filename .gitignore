@@ -1,5 +1,7 @@
 *.png
 
+*.eps
+
 *.tex
 
 *.bib

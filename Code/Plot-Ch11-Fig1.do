@@ -27,7 +27,8 @@ drop if year>2015
 
 line scale* year, ///
 	ylabel(0(50)300) xlabel(1970(5)2015) xtitle("Year") ///
-	ytitle("Relative number of cases (1970=100)")
-graph export "./Drafts/chi-vollrath-fig11001.png", replace as(png) width(1500)
+	ytitle("Relative number of cases (1970=100)") scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig11001.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig11001.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig11001) title("11.1 Relative number of anti-trust cases over time")

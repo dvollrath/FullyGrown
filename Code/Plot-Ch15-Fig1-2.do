@@ -32,8 +32,9 @@ gen pre_1_labor_share = pre_1_labor/pre_1
 // Income shares by percentile
 line `type'_50 `type'_40 `type'_101 year || line `type'_1 year, clcolor(black) ///
 	xlabel(1960(10)2010 2015) ylabel(0(.1).5,format(%9.1f)) xtitle("Year") ///
-	ytitle("Share of national income")
-graph export "./Drafts/chi-vollrath-fig15001.png", replace as(png) width(1500)
+	ytitle("Share of national income") scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig15001.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig15001.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig15001) title("15.1 Distribution of national income, by percentiles")	
 
@@ -42,7 +43,9 @@ twoway rarea pre_1_add4 pre_1_add3 year, color(gs12) ///
 	|| rarea pre_1_add1 pre_1_cap_equity year, color(gs6) || rarea pre_1_cap_equity pre_1_zero year, color(gs4) ///
 	xlabel(1960(10)2010 2014) ylabel(,format(%9.2f)) xtitle("Year") ///
 	ytitle("Share of national income") ///
-	legend(label(1 "Labor income") label(2 "Rents and misc.") label(3 "Mixed income") label(4 "Interest") label(5 "Equity"))
-graph export "./Drafts/chi-vollrath-fig15002.png", replace as(png) width(1500)			
+	legend(label(1 "Labor income") label(2 "Rents and misc.") label(3 "Mixed income") label(4 "Interest") label(5 "Equity")) ///
+	scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig15002.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig15002.png", replace as(png) width($width)			
 
 publish, name(chi-vollrath-fig15002) title("15.2 Sources of income for the top 1 percent")	

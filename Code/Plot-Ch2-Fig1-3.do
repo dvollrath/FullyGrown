@@ -42,26 +42,29 @@ gen ln_gdp_pc = ln(gdp_pc)
 line G10gdppc year if year>1959 ///
 	|| line Ggdppc year if year>1949, ///
 	xtitle("Year") ytitle("Growth rate of real GDP per capita") ///
-	xlabel(1950(10)2010 2016) ylabel(-4(1)8)
-graph export "./Drafts/chi-vollrath-fig02001.png", replace as(png) width(1500)
+	xlabel(1950(10)2010 2016) ylabel(-4(1)8) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig02001.eps", replace as(eps)
+graph export "./Drafts/chi-vollrath-fig02001.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig02001) title("2.1 Growth rate of GDP per capita")
 
 // Produce figure of growth in GDP per capita
-twoway (bar Dgdppc year, ///
+twoway (bar Dgdppc year, color(gs7) ///
 	xtitle("Year") ytitle("Growth in real GDP p.c. (rel to 2000 GDP p.c. growth)") ///
-	ylabel(-1.5(.5)1.5, format(%7.1f)) xlabel(1950(10)2010 2016) ) ///
+	ylabel(-1.5(.5)1.5, format(%7.1f)) xlabel(1950(10)2010 2016)  ) ///
 	(line Dgdppc_mean year, legend(off) ///
 	)
-graph export "./Drafts/chi-vollrath-fig02002.png", replace as(png) width(1500)
+graph export "./Drafts/chi-vollrath-fig02002.eps", replace as(eps)
+graph export "./Drafts/chi-vollrath-fig02002.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig02002) title("2.2 Absolute growth of GDP per capita")
 
 // Produce figure of level of GDP per capita
 line gdp_pc year, ///
 	xtitle("Year") ytitle("Real GDP per capita (2009=100)") ///
-	ylabel(, format(%7.0fc)) xlabel(1950(10)2010 2016)
-graph export "./Drafts/chi-vollrath-fig02003.png", replace as(png) width(1500)
+	ylabel(, format(%7.0fc)) xlabel(1950(10)2010 2016) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig02003.eps", replace as(eps)	
+graph export "./Drafts/chi-vollrath-fig02003.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig02003) title("2.3 Level of GDP per capita")
 

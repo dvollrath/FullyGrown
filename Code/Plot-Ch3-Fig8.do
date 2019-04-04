@@ -27,8 +27,9 @@ keep if year<=2016
 line kgrowth year, ///
 	xtitle("Year") ytitle("10-year average growth in physical capital per capita (%)") ///
 	ylabel(0(.5)2.5, format(%9.1f)) ///
-	xlabel(1950(10)2010 2016)
-graph export "./Drafts/chi-vollrath-fig03008.png", replace as(png) width(1500)
+	xlabel(1950(10)2010 2016) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig03008.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig03008.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig03008) title("3.8 The growth rate of physical capital")
 

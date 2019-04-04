@@ -50,8 +50,10 @@ line G10gdppc year if countrycode=="USA" ///
 	|| line G10gdppc year if countrycode=="GBR", ///
 	xtitle("Year") ytitle("10-year avg. growth in real GDP per capita") ///
 	ylabel(-2(2)10, format(%3.1f)) xlabel(1960(10)2010 2014) ///
-	legend(label(1 "United States") label(2 "France") label(3 "Germany") label(4 "Japan") label(5 "United Kingdom"))
-graph export "./Drafts/chi-vollrath-fig02004.png", replace as(png) width(1500)
+	legend(label(1 "United States") label(2 "France") label(3 "Germany") label(4 "Japan") label(5 "United Kingdom")) ///
+	scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig02004.eps", replace as(eps)		
+graph export "./Drafts/chi-vollrath-fig02004.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig02004) title("2.4 Growth rates of real GDP across countries")
 
@@ -61,22 +63,24 @@ line G10gdppc year if countrycode=="USA" ///
 	|| line G10gdppc year if countrycode=="CHN", ///
 	xtitle("Year") ytitle("10-year avg. growth in real GDP per capita") ///
 	ylabel(-2(2)10, format(%3.1f)) xlabel(1960(10)2010 2014) ///
-	legend(label(1 "United States") label(2 "Japan") label(3 "China"))
-graph export "./Drafts/chi-vollrath-fig02005.png", replace as(png) width(1500)
+	legend(label(1 "United States") label(2 "Japan") label(3 "China")) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig02005.eps", replace as(eps)	
+graph export "./Drafts/chi-vollrath-fig02005.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig02005) title("2.5 Growth rates of real GDP in US, Japan, China")
 
 restore // go back to original set of data
 
 // Produce figure on growth in GDP per capita
-twoway (bar Dgdppc year if countrycode=="USA", ///
+twoway (bar Dgdppc year if countrycode=="USA", color(gs5) ///
 	xtitle("Year") ytitle("Absolute growth in real GDP p.c. (relative to US in 2000)") ///
 	ylabel(,angle(0) format(%7.0f) nogrid) xlabel(1950(10)2010 2014, angle(45)) ) ///
-	(bar Dgdppc year if countrycode=="CHN",  ///
+	(bar Dgdppc year if countrycode=="CHN", color(gs9) ///
 	lwidth(narrow) ///
-	legend(label(1 "United States") label(2 "China")) ///
+	legend(label(1 "United States") label(2 "China")) scheme(vollrath) ///
 	)
-graph export "./Drafts/chi-vollrath-fig02006.png", replace as(png) width(1500)
+graph export "./Drafts/chi-vollrath-fig02006.eps", replace as(eps)	
+graph export "./Drafts/chi-vollrath-fig02006.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig02006) title("2.6 Growth of real GDP per capita in China and the US")
 
@@ -86,7 +90,8 @@ line gdppc year if countrycode=="USA" ///
 	|| line gdppc year if countrycode=="CHN", ///
 	xtitle("Year") ytitle("Real GDP per capita (US in 2009=100)") ///
 	ylabel(,format(%7.1f)) xlabel(1950(10)2010 2014) ///
-	legend(label(1 "United States") label(2 "Japan") label(3 "China") )
-graph export "./Drafts/chi-vollrath-fig02007.png", replace as(png) width(1500)
+	legend(label(1 "United States") label(2 "Japan") label(3 "China") ) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig02007.eps", replace as(eps)		
+graph export "./Drafts/chi-vollrath-fig02007.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig02007) title("2.7 The level of real GDP per capita across countries")

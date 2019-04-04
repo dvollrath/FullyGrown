@@ -27,9 +27,10 @@ replace gdp_pc = 100*gdp_pc/r(mean)
 keep if year<=2016
 
 // Produce figure of capital versus residual growth for per capita GDP
-twoway rarea cap ylow year || rarea gdp_pc cap year, ///
+twoway rarea cap ylow year, color(gs5) || rarea gdp_pc cap year, color(gs10) ///
 	xtitle("Year") ytitle("Real GDP per capita") xlabel(1950(10)2010 2016) ///
-	legend(label(1 "Growth from cap. accum.") label(2 "Residual growth"))
-graph export "./Drafts/chi-vollrath-fig04002.png", replace as(png) width(1500)	
+	legend(label(1 "Growth from cap. accum.") label(2 "Residual growth")) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig04002.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig04002.png", replace as(png) width($width)	
 
 publish, name(chi-vollrath-fig04002) title("4.2 Accounting for real GDP per capita")

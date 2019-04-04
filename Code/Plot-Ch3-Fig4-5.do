@@ -26,8 +26,9 @@ keep if year<=2016
 // Produce figure of human capital stock
 line bea_h year,  ///
 	xtitle("Year") ytitle("Human capital per capita (1950=100)") ///
-	xlabel(1950(10)2010 2016) ylabel(100(10)170)
-graph export "./Drafts/chi-vollrath-fig03004.png", replace as(png) width(1500)
+	xlabel(1950(10)2010 2016) ylabel(100(10)170) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig03004.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig03004.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig03004) title("3.4 Stock of human capital per capita over time")
 
@@ -35,8 +36,9 @@ publish, name(chi-vollrath-fig03004) title("3.4 Stock of human capital per capit
 line hgrowth year,  ///
 	xtitle("Year") ytitle("10-year average growth in human capital per capita (%)") ///
 	ylabel(, format(%9.1f)) yline(0) ///
-	xlabel(1950(10)2010 2016)
-graph export "./Drafts/chi-vollrath-fig03005.png", replace as(png) width(1500)
+	xlabel(1950(10)2010 2016) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig03005.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig03005.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig03005) title("3.5 10-year average growth rate of human capital")
 

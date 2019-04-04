@@ -32,15 +32,17 @@ drop if year<1950
 // Produce figure on net investment rates
 line TOTAL_net_inv_rate NFNB_net_inv_rate NFCB_net_inv_rate year, ///
 	ylabel(-.1(.1).6, format(%9.1f)) ytitle("Net investment rate") ///
-	xlabel(1950(10)2010 2016) xtitle("Year")
-graph export "./Drafts/chi-vollrath-fig10001.png", replace as(png) width(1500)
+	xlabel(1950(10)2010 2016) xtitle("Year") scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig10001.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig10001.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig10001) title("10.1 Net investment rate over time")
 
 // Produce figure on Q ratios
 line NFCB_q_q NFCB_q_simple year if year<2017, ///
 	xlabel(1950(10)2010 2016) xtitle("Year") ytitle("Q ratio") ///
-	ylabel(,format(%9.1f))
-graph export "./Drafts/chi-vollrath-fig10002.png", replace as(png) width(1500)	
+	ylabel(,format(%9.1f)) scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig10002.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig10002.png", replace as(png) width($width)	
 
 publish, name(chi-vollrath-fig10002) title("10.2 Q ratio over time")

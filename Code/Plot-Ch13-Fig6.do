@@ -32,7 +32,8 @@ keep if year>=1986 & year<=2016
 line profit_share year, ///
 	xlabel(1985(5)2015) ylabel(-.3(.1).4, format(%9.1f)) ///
 	yline(0) ///
-	xtitle("Year") ytitle("Economic profits as share of housing value added") 
-graph export "./Drafts/chi-vollrath-fig13006.png", as(png) replace width(1500)
+	xtitle("Year") ytitle("Economic profits as share of housing value added") scheme(vollrath)
+graph export "./Drafts/chi-vollrath-fig13006.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig13006.png", as(png) replace width($width)
 
 publish, name(chi-vollrath-fig13006) title("13.6 Economic profits as a share of housing value-added, 1985-2016")
