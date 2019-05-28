@@ -18,7 +18,7 @@ drop if year<1950
 // Produce figures
 ////////////////////////////////////////////////////////
 
-// Produce figure of human capital stock
+// Produce figure of movers
 twoway bar movers year, color(gs4) ///
 	|| scatter move_rate year, connect(line) yaxis(2) lwidth(medthick) ///
 	xtitle("Year") ytitle("Percentage of people who moved", axis(2)) ytitle("Number of movers (millions)") ///

@@ -27,7 +27,7 @@ cd "/users/dietz/dropbox/project/fullygrown"
 //capture ssc install freduse // utility to download FRED data
 //capture net install gr0070.pkg // plotplain figure scheme
 //capture ssc install egenmore // some additional data commands
-//do "./Code/Prog-Publish.do" // loads program that pushes figures to blog
+do "./Code/Prog-Publish.do" // loads program that pushes figures to blog
 
 // Set options for formatting of figures
 graph set window fontface "Garamond"

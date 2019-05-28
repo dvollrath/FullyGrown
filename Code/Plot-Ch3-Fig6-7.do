@@ -19,12 +19,12 @@ foreach v in equip struct_nonres struct_res ip { // for these four capital types
 label variable q_scale_equip "Equipment"
 label variable q_scale_struct_nonres "Firm structures"
 label variable q_scale_struct_res "Residential structures"
-label variable q_scale_ip "Intellectual Prop."
+label variable q_scale_ip "Intellectual property"
 
 label variable G10_equip "Equipment"
 label variable G10_struct_nonres "Firm structures"
 label variable G10_struct_res "Residential structures"
-label variable G10_ip "Intellectual Prop."
+label variable G10_ip "Intellectual property"
 
 drop if year<1950
 
@@ -39,7 +39,8 @@ line q_scale_equip year ///
 	|| line q_scale_ip year, ///
 	xtitle("Year") ytitle("Physical capital (total stock in 2009=100)") ///
 	xlabel(1950(10)2010 2016) ylabel(,format(%4.0f)) scheme(vollrath)
-graph export "./Drafts/chi-vollrath-fig03006.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig03006.eps", replace as(eps)
+graph export "./Drafts/chi-vollrath-fig03006.pdf", replace as(pdf)			
 graph export "./Drafts/chi-vollrath-fig03006.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig03006) title("3.6 The level of physical capital, by type")
@@ -51,7 +52,8 @@ line G10_equip year ///
 	|| line G10_ip year, ///
 	xtitle("Year") ytitle("10-year annualized growth rate (%)") ///
 	xlabel(1950(10)2010 2016) ylabel(,format(%4.0f)) scheme(vollrath)
-graph export "./Drafts/chi-vollrath-fig03007.eps", replace as(eps)			
+graph export "./Drafts/chi-vollrath-fig03007.eps", replace as(eps)
+graph export "./Drafts/chi-vollrath-fig03007.pdf", replace as(pdf)			
 graph export "./Drafts/chi-vollrath-fig03007.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig03007) title("3.7 The growth of capital, by type")

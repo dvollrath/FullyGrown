@@ -2,13 +2,12 @@
 // Figures on MSA's and temperatures
 ////////////////////////////////////////////////////////
 
-use "./Work/BEA-metro-final.dta", clear
-
-drop if wrluri==. // get rid of rows without regulation data
+use "./Work/BEA-metro-growth.dta", clear
 
 drop label // drop and recreate own label for cities
 gen label=""
 replace label="New York" if code==35620
+replace label="Los Angeles" if code==31080
 replace label="San Jose" if code==41940
 replace label="Seattle" if code==42660
 replace label="San Fran/Oakland" if code==41860
@@ -33,10 +32,11 @@ gen Glforce = 100*(lforce2015/lforce2001 - 1) // growth of labor force
 ////////////////////////////////////////////////////////
 
 // City size and GDP per worker
-scatter gdppw2015 pop2015, xscale(log extend) yscale(log) mlabel(label) mlabposition(12) ///
+scatter gdppw2015 pop2015 if gdppw2001<5, xscale(log extend) yscale(log) mlabel(label) mlabposition(12) ///
 	xtitle("City population (millions)") ytitle("Metro GDP per capita (relative to min.) in 2015") ///
 	ylabel(1 2(2)6) xlabel(.1 .5 1 2 3 4 5 10 15 20) scheme(vollrath)
-graph export "./Drafts/chi-vollrath-fig13003.eps", replace as(eps)				
+graph export "./Drafts/chi-vollrath-fig13003.eps", replace as(eps)
+graph export "./Drafts/chi-vollrath-fig13003.pdf", replace as(pdf)				
 graph export "./Drafts/chi-vollrath-fig13003.png", replace as(png) width($width)
 
 publish, name(chi-vollrath-fig13003) title("13.3 Relative GDP per worker across MSAs versus their size, 2015")

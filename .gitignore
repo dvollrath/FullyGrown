@@ -10,8 +10,13 @@
 
 *.pdf
 
+*.docx
+
 Papers/
 
 Comments/
 
 Figures/
+
+Drafts/
+
